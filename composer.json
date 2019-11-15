@@ -1,0 +1,7 @@
+{
+  "name": "czdesignz/phpmyadmini",
+  "description": "This is a quick mysql interegation script which can be loaded when required",
+  "require": {
+    "php": ^7.0
+  }
+}
