@@ -2,6 +2,14 @@
   "name": "czdesignz/phpmyadmini",
   "description": "This is a quick mysql interegation script which can be loaded when required",
   "require": {
-    "php": ^7.0
-  }
+    "php": ">=7.0"
+  },
+  "authors": [
+    {
+      "name": "CZDesignz",
+      "email": "support@czdesignz.uk",
+      "homepage": "https://czdesignz.uk",
+      "role": "Developer"
+    }
+  ]
 }
