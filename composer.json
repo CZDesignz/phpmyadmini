@@ -11,5 +11,7 @@
       "homepage": "https://czdesignz.uk",
       "role": "Developer"
     }
-  ]
+  ],
+  "homepage": "https://github.com/CZDesignz/phpmyadmini",
+  "license": "MIT"
 }
