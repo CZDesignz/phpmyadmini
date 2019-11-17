@@ -1,3 +1,5 @@
-Welcome
+<h1>Welcome</h1>
 
-Welcome to the documentation (and test) of the backup for PHPMyAdmini. If you have any questions please let me know
+PHPMyAdmini is designed to be a lightweight script which can help you quickly navigate through your sites databases.
+
+I am looking to expand the functionality of the script as needed, please add any suggestions to the issue log and I can work through the list.
