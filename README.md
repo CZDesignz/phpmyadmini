@@ -1,4 +1,4 @@
-# PHP MyAdmini
+# PHPMyAdmini
 
 This is a very small and lightweight database review script that allows the user to access thier database. No credentials are stored outside of the users session.
 
