@@ -60,6 +60,16 @@ if((empty($_SESSION['server']) || empty($_SESSION['user'])) && empty($_POST)){
 	$conn = new mysqli($_SESSION['server'], $_SESSION['user'], $_SESSION['pass']);
 
 echo "<a href=\"?view=logout\">Logout</a><br /><br />";
+	
+## Create Nav
+	
+if(!empty($_GET['tbln'])){
+		$nav = "<a href=\"?\">Root</a> > <a href=\"?view=db&dbn=".$_GET['dbn']."\">".$_GET['dbn']."</a> > <a href=\"?view=tbl&dbn=".$_GET['dbn']."&tbln=".$_GET['tbln']."\">".$_GET['tbln']."</a><br /><br /><form action=\"?view=viewsql&dbn=".$_GET['dbn']."&tbln=".$_GET['tbln']."\" method=\"post\">";
+	} else {
+		$nav = "<a href=\"?\">Root</a> > <a href=\"?view=db&dbn=".$_GET['dbn']."\">".$_GET['dbn']."</a> -> <a href=\"?view=viewsql&dbn=".$_GET['dbn']."\">SQL</a><br /><br /><form action=\"?view=viewsql&dbn=".$_GET['dbn']."\" method=\"post\">";
+	}
+	
+## Check Views
 
 switch(@$_GET['view']){
 
@@ -123,11 +133,7 @@ case 'viewsql':
 		$_POST['sql'] = @str_replace("\'", "'", $_POST['sql']);
 		$_POST['sql'] = @str_replace("\\\"", "\"", $_POST['sql']);
 
-	if(!empty($_GET['tbln'])){
-		echo "<a href=\"?\">Root</a> > <a href=\"?view=db&dbn=".$_GET['dbn']."\">".$_GET['dbn']."</a> > <a href=\"?view=tbl&dbn=".$_GET['dbn']."&tbln=".$_GET['tbln']."\">".$_GET['tbln']."</a><br /><br /><form action=\"?view=viewsql&dbn=".$_GET['dbn']."&tbln=".$_GET['tbln']."\" method=\"post\">";
-	} else {
-		echo "<a href=\"?\">Root</a> > <a href=\"?view=db&dbn=".$_GET['dbn']."\">".$_GET['dbn']."</a> -> <a href=\"?view=viewsql&dbn=".$_GET['dbn']."\">SQL</a><br /><br /><form action=\"?view=viewsql&dbn=".$_GET['dbn']."\" method=\"post\">";
-	}
+	echo $nav;
 
 	echo "<div align=\"center\">BTW: Joining stuff won't show up:<br /><textarea name=\"sql\" cols=\"100\" rows=\"10\">".$_POST['sql']."</textarea><br /><br /><input type=\"submit\" value=\"Run Query\"></div>";
 
@@ -178,11 +184,7 @@ case 'sql':
 
 	$conn->select_db($_GET['dbn']);
 
-	if(!empty($_GET['tbln'])){
-		echo "<a href=\"?\">Root</a> > <a href=\"?view=db&dbn=".$_GET['dbn']."\">".$_GET['dbn']."</a> > <a href=\"?view=tbl&dbn=".$_GET['dbn']."&tbln=".$_GET['tbln']."\">".$_GET['tbln']."</a><br /><br /><form action=\"?view=viewsql&dbn=".$_GET['dbn']."&tbln=".$_GET['tbln']."\" method=\"post\">";
-	} else {
-		echo "<a href=\"?\">Root</a> > <a href=\"?view=db&dbn=".$_GET['dbn']."\">".$_GET['dbn']."</a> -> <a href=\"?view=viewsql&dbn=".$_GET['dbn']."\">SQL</a><br /><br /><form action=\"?view=viewsql&dbn=".$_GET['dbn']."\" method=\"post\">";
-	}
+	echo $nav;
 
 	echo "<div align=\"center\"><textarea name=\"sql\" cols=\"100\" rows=\"10\">SELECT * FROM ".$_GET['tbln']."</textarea><br /><br /><input type=\"submit\" value=\"Run Query\"></div>";
 
